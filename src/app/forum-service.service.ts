@@ -24,4 +24,14 @@ getForum():Observable<forumPost[]> {
 }
 
 
+//en el post y en el put se pone el body y los headers
+//el post es para crear un nuevo recurso y el put es para actualizar un recurso existente
+addForum(forum: forumPost): Observable<forumPost> {
+  return this.http.post<forumPost>(`${this.apiUrl}`, forum, { headers: this.jsonHeaders }); 
+}
+
+updateForum(forum: forumPost): Observable<forumPost> {
+  return this.http.put<forumPost>(`${this.apiUrl}/${forum.id}`, forum, { headers: this.jsonHeaders });  
+}
+
 }

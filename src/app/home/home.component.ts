@@ -27,6 +27,17 @@ export class HomeComponent implements OnInit {
 
   onSubmit(foro: forumPost) {
    console.log(foro);
+
+   foro.userid = 1; // Asignar un usuario por defecto
+   foro.id = this.forumPosts.length + 1; // Asignar un ID
+
+   this.forumService.addForum(foro).subscribe(data => {
+     this.forumPosts.unshift(data); // Añadir el nuevo post al inicio del array
+     //this.forum = { userid: 0, id: 0, title: '', body: '' }; // Resetear el formulario
+     console.log("Post added:", data);
+   });
+   
+
   }
 
   /*
