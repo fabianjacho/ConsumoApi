@@ -1,0 +1,13 @@
+<p>home works!</p>
+
+<form #formulario="ngForm" (ngSubmit)="onSubmit(forum)">
+  <div>
+    <label for="Titulo">Titulo:</label>
+    <input id="Titulo" name="Titulo" [(ngModel)] = "forum.title">
+  </div>
+  <div>
+    <label for="Body">Body:</label>
+    <input id="Body" name="Body" [(ngModel)] = "forum.body">
+  </div>
+  <button type="submit">Enviar</button>
+</form>
