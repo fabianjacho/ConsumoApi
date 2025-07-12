@@ -1,13 +1,46 @@
 <p>home works!</p>
 
-<form #formulario="ngForm" (ngSubmit)="onSubmit(forum)">
+<h2>{{modoEdicion ? 'Editar Usuario':'Crear Usuario'}}</h2>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
   <div>
-    <label for="Titulo">Titulo:</label>
-    <input id="Titulo" name="Titulo" [(ngModel)] = "forum.title">
+    <label for="name">Nombre:</label>
+    <input id="name" formControlName="name" required>
   </div>
   <div>
-    <label for="Body">Body:</label>
-    <input id="Body" name="Body" [(ngModel)] = "forum.body">
+    <label for="address">Dirección:</label>
+    <input id="address" formControlName="address" required>
   </div>
-  <button type="submit">Enviar</button>
+  <div>
+    <label for="phone">Teléfono:</label>
+    <input id="phone" formControlName="phone" required>
+  </div>
+  <button type="submit">{{modoEdicion ? 'Actualizar' : 'Crear'}}</button>
 </form>
+
+<p style="color: green; margin-top: 10px;">{{mensaje}}</p>
+
+<h3>Lista de Usuarios</h3>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.name}}</td>
+      <td>{{usuario.address}}</td>
+      <td>{{usuario.phone}}</td>
+      <td>
+        <button (click)="editar(usuario.id)">Editar</button>
+        <button (click)="eliminar(usuario.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
