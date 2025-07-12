@@ -1,6 +1,47 @@
-<p>contact works!</p>
+<div style="text-align: center; font-family: Arial, sans-serif; margin-top: 40px;">
+  <p style="font-size: 26px; font-weight: bold; color: #dd1b16;">
+    ¡Este es el poder de Angular! 🚀
+  </p>
 
-<div>
-    <img ngSrc="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular Logo" width="100" height="100">
+  <div style="margin: 20px auto;">
+    <img 
+      ngSrc="https://angular.io/assets/images/logos/angular/angular.svg" 
+      alt="Angular Logo" 
+      width="120" 
+      height="120"
+      class="logo-angular"
+    >
+  </div>
+
+  <p style="font-size: 18px; color: #333;">
+    Bienvenido al componente de contacto. 
+  </p>
+
+
 </div>
 
+<style>
+.logo-angular {
+  transition: transform 0.6s ease-in-out;
+}
+
+.logo-angular:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.btn-angular {
+  background-color: #dd1b16;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-angular:hover {
+  background-color: #b3130d;
+}
+</style>
